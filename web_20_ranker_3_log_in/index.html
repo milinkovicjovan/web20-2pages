@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* This removes any extra space beneath the image */
+    }
+    .page-wrapper {
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+    .hero-section {
+      background-image: url(assets/Top\ Image.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 600px;
+      position: relative;
+      padding: 0 10px;
+    }
+
+    .hero-section__heading {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero-section__heading-header {
+      max-width: 500px;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .hero-section__orange-text {
+      color: #fb7e24;
+    }
+
+    #dateParagraph1 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-right: 60px;
+    }
+
+    .date-and-progress {
+      display: flex;
+      margin-top: 20px;
+      align-items: center;
+    }
+
+    .progress-paragraphs {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+    @media (max-width: 600px) {
+      .progress-paragraphs {
+        flex-direction: column;
+      }
+    }
+
+    .in-progress-paragraph,
+    .setup-paragraph,
+    .completed-paragraph {
+      padding: 5px 10px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .in-progress-paragraph {
+      background-color: #fb7e24;
+    }
+
+    .setup-paragraph {
+      background-color: #ba1148;
+    }
+
+    .completed-paragraph {
+      background-color: #467e34;
+    }
+
+    .hero-section__top-arrow {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .recent-updates__section {
+      max-width: 1200px;
+      margin: 50px auto;
+      display: flex;
+      gap: 30px;
+      flex-direction: row;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 1150px) {
+      .recent-updates__section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .recent-updates__section-header {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .recent-updates {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .recent-updates__dates {
+      color: #fb7e24;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .recent-updates__paragraphs {
+      display: flex;
+      gap: 40px;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 900px) {
+      .recent-updates__paragraphs {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    .algorithm-section {
+      background-color: #efefef;
+    }
+
+    .algorithm-section__content,
+    .study-updates__section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 10px;
+    }
+
+    .in-progress__background {
+      background-image: url(assets/In\ Progress\ Background.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .in-progress-paragraph2 {
+      color: #ffffff;
+      font-weight: 500;
+      margin-left: 80px;
+    }
+
+    #dateParagraph2 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-right: 30px;
+    }
+
+    .algorithm-section__sub-header {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+    .algorithm-section__header {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    .paragraph-text {
+      margin-bottom: 30px;
+      line-height: 2;
+    }
+
+    .map-image {
+      margin: 50px auto;
+      max-width: 80%;
+      /* max-width: 1000px; */
+    }
+
+    .study-updates__section {
+      margin: 70px auto;
+    }
+
+    .study-updates__header {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    .study-updates__sub-header {
+      font-size: 20px;
+    }
+    .study-updates__dates {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-section__heading-header,
+      .recent-updates__section-header,
+      .algorithm-section__header,
+      .study-updates__header,
+      .sign-up__header {
+        font-size: 26px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-section__heading-header,
+      .recent-updates__section-header,
+      .algorithm-section__header,
+      .study-updates__header,
+      .sign-up__header {
+        font-size: 22px;
+      }
+
+      .study-updates__sub-header,
+      .algorithm-section__sub-header {
+        font-size: 18px;
+      }
+    }
+
+    .brown-nav {
+      display: flex;
+      align-items: center;
+      background-color: #2f261d;
+      min-height: 60px;
+    }
+
+    .flex-container__brown-nav {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 270px;
+      align-items: center;
+    }
+
+    @media (max-width: 1200px) {
+      .flex-container__brown-nav {
+        gap: 150px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .flex-container__brown-nav {
+        gap: 70px;
+      }
+    }
+
+    .flex-container__phone-clock {
+      gap: 40px;
+    }
+
+    .flex-container__phone-clock,
+    .flex-container__nav,
+    .flex-container__phone,
+    .flex-container__clock {
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .flex-container__phone,
+    .flex-container__clock {
+      gap: 10px;
+    }
+
+    .phone-number {
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .nav-elements {
+      margin-right: 20px;
+      border-right: 2px solid #ffffff;
+      padding-right: 20px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .nav-elements__latest {
+      margin-right: 40px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 998px) {
+      .flex-container__phone-clock {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .brown-nav {
+        display: none;
+      }
+    }
+
+    .main-navigation {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+  <script>
+    // Get the current date
+    document.addEventListener("DOMContentLoaded", function () {
+      var currentDate = new Date();
+
+      var options = { day: "2-digit", month: "2-digit", year: "numeric" };
+      var formattedDate = currentDate
+        .toLocaleDateString("en-GB", options)
+        .replace(/\//g, ".");
+
+      document.getElementById("dateParagraph1").textContent = formattedDate;
+
+      document.getElementById("dateParagraph2").textContent = formattedDate;
+    });
+  </script>
+  <body>
+    <section class="page-wrapper">
+      <div class="brown-nav">
+        <div class="flex-container__brown-nav">
+          <div class="flex-container__phone-clock">
+            <div class="flex-container__phone">
+              <img src="assets/Phone Icon.png" alt="Phone Icon" />
+              <a href="tel:+1-844-942-2499" class="phone-number"
+                >+1 (844) 942-2499</a
+              >
+            </div>
+            <div class="flex-container__clock">
+              <img src="assets/Clock Icon.png" alt="Clock Icon" />
+              <p>Monday - Friday 9 AM - 5 PM</p>
+            </div>
+          </div>
+          <div class="flex-container__nav">
+            <a href="#" class="nav-elements">ACCOUNT</a>
+            <a href="#" class="nav-elements">TOOLS</a>
+            <a href="#" class="nav-elements">TRAINING</a>
+            <a href="#" class="nav-elements">BLOG</a>
+            <a href="#" class="nav-elements__latest">ABOUT</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-section">
+        <div class="main-navigation">
+          <div>
+            <img src="assets/Logo.png" alt="Web Ranker Logo" />
+          </div>
+          <div>
+            <ul>
+              <li>START HERE</li>
+              <li>START HERE</li>
+              <li>START HERE</li>
+              <li>START HERE</li>
+              <li>START HERE</li>
+              <li>START HERE</li>
+              <li>START HERE</li>
+            </ul>
+          </div>
+          <div>
+            <p>$0.0</p>
+            <img src="assets/Chart Icon.png" />
+          </div>
+        </div>
+        <div class="hero-section__heading">
+          <h1 class="hero-section__heading-header">
+            HOW EFFECTIVE IS
+            <span class="hero-section__orange-text">CTR MANIPULATION</span>
+            WITH GBP LISTINGS?
+          </h1>
+          <div class="date-and-progress">
+            <p id="dateParagraph1"></p>
+            <div class="progress-paragraphs">
+              <p class="in-progress-paragraph">IN PROGRESS</p>
+              <p class="setup-paragraph">SETUP</p>
+              <p class="completed-paragraph">COMPLETED</p>
+            </div>
+          </div>
+        </div>
+        <img
+          class="hero-section__top-arrow"
+          src="assets/Top Arrow.png"
+          alt="Top Arrow"
+        />
+      </div>
+      <div class="recent-updates__section">
+        <div style="max-width: 500px">
+          <h1 class="recent-updates__section-header">RECENT UPDATES</h1>
+          <img src="assets/Laptop.png" alt="Laptop" />
+        </div>
+        <div class="recent-updates">
+          <ul>
+            <li>
+              <p class="recent-updates__dates">07/08/23</p>
+              <div class="recent-updates__paragraphs">
+                <p>New Result Analysis</p>
+                <p>| Adding manipulation of 20 additional signals</p>
+              </div>
+            </li>
+            <li>
+              <p class="recent-updates__dates">07/08/23</p>
+              <div class="recent-updates__paragraphs">
+                <p>New Result Analysis</p>
+                <p>| Adding manipulation of 20 additional signals</p>
+              </div>
+            </li>
+            <li>
+              <p class="recent-updates__dates">07/08/23</p>
+              <div class="recent-updates__paragraphs">
+                <p>New Result Analysis</p>
+                <p>| Adding manipulation of 20 additional signals</p>
+              </div>
+            </li>
+            <li>
+              <p class="recent-updates__dates">07/08/23</p>
+              <div class="recent-updates__paragraphs">
+                <p>New Result Analysis</p>
+                <p>| Adding manipulation of 20 additional signals</p>
+              </div>
+            </li>
+            <li>
+              <p class="recent-updates__dates">07/08/23</p>
+              <div class="recent-updates__paragraphs">
+                <p>New Result Analysis</p>
+                <p>| Adding manipulation of 20 additional signals</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="algorithm-section">
+        <div class="algorithm-section__content">
+          <div class="in-progress__background">
+            <p class="in-progress-paragraph2">IN PROGRESS</p>
+            <p id="dateParagraph2"></p>
+          </div>
+          <h2 class="algorithm-section__sub-header">
+            FEAR AND LOATHING IN THE ALGORITHM:
+          </h2>
+          <h1 class="algorithm-section__header">
+            AN EXPLORATION INTO CTR MANIPULATION
+          </h1>
+          <div>
+            <p class="paragraph-text">
+              Hey, The rumors are true, my firends. We've been plunging headlong
+              into the wild, seedy underbelly of Google's algorithm. We've been
+              cranking up the Visibility of our GBP campaigns, not by treading
+              the beaten path but by mixin in a little bit of chaos - yeah,
+              that's right, I said chaos.
+            </p>
+            <p class="paragraph-text">
+              We've been giving our dusty old campaigns the kick in the keister
+              they've been crying out for, and guess what? They've been improved
+              to the beat in less than a week. I kid you not, we're talking
+              about campaigns that were flatlining, showing no vital signgs for
+              months on end.
+            </p>
+            <p class="paragraph-text">
+              Our secret sauce? A basic strategy, so simple it's almost
+              criminal. We've been interacting with GBPs thru GBP posts, my
+              friends. And not just a polite wave from a desktop - we got down
+              and dirty, got our hands in the muck, and did it all through the
+              mobile devices.
+            </p>
+          </div>
+          <img class="map-image" src="assets/map.jpg" alt="Chart" />
+          <div>
+            <p class="paragraph-text">
+              Hey, The rumors are true, my firends. We've been plunging headlong
+              into the wild, seedy underbelly of Google's algorithm. We've been
+              cranking up the Visibility of our GBP campaigns, not by treading
+              the beaten path but by mixin in a little bit of chaos - yeah,
+              that's right, I said chaos.
+            </p>
+            <p class="paragraph-text">
+              We've been giving our dusty old campaigns the kick in the keister
+              they've been crying out for, and guess what? They've been improved
+              to the beat in less than a week. I kid you not, we're talking
+              about campaigns that were flatlining, showing no vital signgs for
+              months on end.
+            </p>
+            <p class="paragraph-text">
+              Our secret sauce? A basic strategy, so simple it's almost
+              criminal. We've been interacting with GBPs thru GBP posts, my
+              friends. And not just a polite wave from a desktop - we got down
+              and dirty, got our hands in the muck, and did it all through the
+              mobile devices.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="study-updates__section">
+        <h1 class="study-updates__header">STUDY UPDATES</h1>
+        <h2 class="study-updates__sub-header">YOUR TITLE HERE</h2>
+        <p class="study-updates__dates">07.12.2023</p>
+        <div>
+          <p class="paragraph-text">
+            Hey, The rumors are true, my firends. We've been plunging headlong
+            into the wild, seedy underbelly of Google's algorithm. We've been
+            cranking up the Visibility of our GBP campaigns, not by treading the
+            beaten path but by mixin in a little bit of chaos - yeah, that's
+            right, I said chaos.
+          </p>
+          <p class="paragraph-text">
+            We've been giving our dusty old campaigns the kick in the keister
+            they've been crying out for, and guess what? They've been improved
+            to the beat in less than a week. I kid you not, we're talking about
+            campaigns that were flatlining, showing no vital signgs for months
+            on end.
+          </p>
+          <p class="paragraph-text">
+            Our secret sauce? A basic strategy, so simple it's almost criminal.
+            We've been interacting with GBPs thru GBP posts, my friends. And not
+            just a polite wave from a desktop - we got down and dirty, got our
+            hands in the muck, and did it all through the mobile devices.
+          </p>
+        </div>
+        <h2 class="study-updates__sub-header">YOUR TITLE HERE</h2>
+        <p class="study-updates__dates">07.12.2023</p>
+        <div>
+          <p class="paragraph-text">
+            Hey, The rumors are true, my firends. We've been plunging headlong
+            into the wild, seedy underbelly of Google's algorithm. We've been
+            cranking up the Visibility of our GBP campaigns, not by treading the
+            beaten path but by mixin in a little bit of chaos - yeah, that's
+            right, I said chaos.
+          </p>
+          <p class="paragraph-text">
+            We've been giving our dusty old campaigns the kick in the keister
+            they've been crying out for, and guess what? They've been improved
+            to the beat in less than a week. I kid you not, we're talking about
+            campaigns that were flatlining, showing no vital signgs for months
+            on end.
+          </p>
+          <p class="paragraph-text">
+            Our secret sauce? A basic strategy, so simple it's almost criminal.
+            We've been interacting with GBPs thru GBP posts, my friends. And not
+            just a polite wave from a desktop - we got down and dirty, got our
+            hands in the muck, and did it all through the mobile devices.
+          </p>
+        </div>
+        <h2 class="study-updates__sub-header">YOUR TITLE HERE</h2>
+        <p class="study-updates__dates">07.12.2023</p>
+        <div>
+          <p class="paragraph-text">
+            Hey, The rumors are true, my firends. We've been plunging headlong
+            into the wild, seedy underbelly of Google's algorithm. We've been
+            cranking up the Visibility of our GBP campaigns, not by treading the
+            beaten path but by mixin in a little bit of chaos - yeah, that's
+            right, I said chaos.
+          </p>
+          <p class="paragraph-text">
+            We've been giving our dusty old campaigns the kick in the keister
+            they've been crying out for, and guess what? They've been improved
+            to the beat in less than a week. I kid you not, we're talking about
+            campaigns that were flatlining, showing no vital signgs for months
+            on end.
+          </p>
+          <p class="paragraph-text">
+            Our secret sauce? A basic strategy, so simple it's almost criminal.
+            We've been interacting with GBPs thru GBP posts, my friends. And not
+            just a polite wave from a desktop - we got down and dirty, got our
+            hands in the muck, and did it all through the mobile devices.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

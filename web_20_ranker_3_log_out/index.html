@@ -431,11 +431,16 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      overflow: hidden;
+      align-items: center;
+      /* overflow: hidden; */
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 20px;
       padding-right: 50px;
+    }
+
+    .links-on-mobile {
+      display: none;
     }
 
     .main-navigation a {
@@ -467,19 +472,32 @@
     }
 
     @media screen and (max-width: 800px) {
-      .main-navigation a {
+      .main-navigation.responsive {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: black;
+        overflow: hidden;
+        transition: 0.5s;
+        padding-right: 0;
+      }
+
+      .links-on-desktop {
         display: none;
       }
-      .main-navigation a.icon {
-        float: right;
-        display: block;
-        border-bottom: 0 !important;
+      .links-on-mobile {
+        display: inline-block;
       }
-    }
 
-    @media screen and (max-width: 800px) {
-      .main-navigation.responsive {
-        position: relative;
+      .main-navigation.responsive img {
+        display: none;
       }
 
       .main-navigation.responsive a.icon {
@@ -492,9 +510,49 @@
         display: block;
         text-align: left;
       }
+
+      .main-navigation a {
+        display: none;
+      }
+      .main-navigation a.icon {
+        float: right;
+        display: block;
+        border-bottom: 0 !important;
+      }
       .cart-nav {
         display: none;
       }
+    }
+
+    .dropbtn {
+      font-size: 14px;
+      border: none;
+      text-decoration: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 110px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+      flex-direction: column;
     }
   </style>
   <body>
@@ -525,18 +583,78 @@
       <div class="hero-section">
         <div class="main-navigation" id="mymain-navigation">
           <img
-            style="max-height: 50px"
+            style="object-fit: contain; max-width: 200px"
             src="assets/Logo.png"
             alt="Web Ranker Logo"
           />
           <div id="links-container">
-            <a href="#" class="active">START HERE</a>
-            <a href="#">LOCAL SEO</a>
-            <a href="#">ORGANIC SEO</a>
-            <a href="#">BACKLINKS</a>
-            <a href="#">BRANDING</a>
-            <a href="#">PRESS & MEDIA</a>
-            <a href="#">HELP</a>
+            <div class="links-on-mobile">
+              <a href="#" class="active">START HERE</a>
+              <a href="#">LOCAL SEO</a>
+              <a href="#">ORGANIC SEO</a>
+              <a href="#">BACKLINKS</a>
+              <a href="#">BRANDING</a>
+              <a href="#">PRESS & MEDIA</a>
+              <a href="#">HELP</a>
+            </div>
+            <div class="links-on-desktop">
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>START HERE</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>LOCAL SEO</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>ORGANIC SEO</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>BACKLINKS</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>BRANDING</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>PRESS & MEDIA</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button href="#" class="dropbtn"><a>HELP</a></button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+            </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
             </a>
